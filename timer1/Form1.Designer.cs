@@ -47,12 +47,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.minuteMinusMini = new System.Windows.Forms.Button();
+            this.minutePlusMini = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // hourPlus
             // 
-            resources.ApplyResources(this.hourPlus, "hourPlus");
             this.hourPlus.BackColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.hourPlus, "hourPlus");
             this.hourPlus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.hourPlus.Name = "hourPlus";
             this.hourPlus.UseVisualStyleBackColor = false;
@@ -60,8 +62,8 @@
             // 
             // minutePlus
             // 
-            resources.ApplyResources(this.minutePlus, "minutePlus");
             this.minutePlus.BackColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.minutePlus, "minutePlus");
             this.minutePlus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.minutePlus.Name = "minutePlus";
             this.minutePlus.UseVisualStyleBackColor = false;
@@ -69,8 +71,8 @@
             // 
             // startButton
             // 
-            resources.ApplyResources(this.startButton, "startButton");
             this.startButton.BackColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.startButton, "startButton");
             this.startButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.startButton.Name = "startButton";
             this.startButton.UseVisualStyleBackColor = false;
@@ -78,8 +80,8 @@
             // 
             // hourMinus
             // 
-            resources.ApplyResources(this.hourMinus, "hourMinus");
             this.hourMinus.BackColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.hourMinus, "hourMinus");
             this.hourMinus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.hourMinus.Name = "hourMinus";
             this.hourMinus.UseVisualStyleBackColor = false;
@@ -87,8 +89,8 @@
             // 
             // minuteMinus
             // 
-            resources.ApplyResources(this.minuteMinus, "minuteMinus");
             this.minuteMinus.BackColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.minuteMinus, "minuteMinus");
             this.minuteMinus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.minuteMinus.Name = "minuteMinus";
             this.minuteMinus.UseVisualStyleBackColor = false;
@@ -122,8 +124,8 @@
             // 
             // stopButton
             // 
-            resources.ApplyResources(this.stopButton, "stopButton");
             this.stopButton.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.stopButton, "stopButton");
             this.stopButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.stopButton.Name = "stopButton";
             this.stopButton.UseVisualStyleBackColor = false;
@@ -171,11 +173,31 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
+            // minuteMinusMini
+            // 
+            this.minuteMinusMini.BackColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.minuteMinusMini, "minuteMinusMini");
+            this.minuteMinusMini.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.minuteMinusMini.Name = "minuteMinusMini";
+            this.minuteMinusMini.UseVisualStyleBackColor = false;
+            this.minuteMinusMini.Click += new System.EventHandler(this.minuteMinusMini_Click);
+            // 
+            // minutePlusMini
+            // 
+            this.minutePlusMini.BackColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.minutePlusMini, "minutePlusMini");
+            this.minutePlusMini.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.minutePlusMini.Name = "minutePlusMini";
+            this.minutePlusMini.UseVisualStyleBackColor = false;
+            this.minutePlusMini.Click += new System.EventHandler(this.minutePlusMini_Click);
+            // 
             // Form1
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.minuteMinusMini);
+            this.Controls.Add(this.minutePlusMini);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -217,6 +239,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button minuteMinusMini;
+        private System.Windows.Forms.Button minutePlusMini;
     }
 }
 

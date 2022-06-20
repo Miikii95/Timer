@@ -13,8 +13,8 @@ namespace timer1
     public partial class Form1 : Form
     {
         int hour = 0;
-        int minute = 30;
-        int second = 0;
+        int minute = 0;
+        int second = 5;
 
         public Form1()
         {
@@ -24,12 +24,7 @@ namespace timer1
             secondDisplay.Text = "0"+second.ToString();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-       
+        private void Form1_Load(object sender, EventArgs e){}
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -71,9 +66,23 @@ namespace timer1
         public void passedTimeAction()
         {
             timer.Stop();
-            System.Diagnostics.Process.Start("Shutdown", "-s -t 1");
-            MessageBox.Show("Computer is shuting down");
-           
+            timer2.Stop();
+            using (Form2 form2 = new Form2())
+            {
+                form2.ShowDialog();
+                if (form2.DialogResult==DialogResult.Cancel) 
+                {   hour = 0;
+                    minute = 30;
+                    second = 0;
+                    timer.Start();
+                    timer2.Start();
+                    updateDisplay();
+                }
+                if (form2.DialogResult == DialogResult.OK)
+                {
+                   System.Diagnostics.Process.Start("Shutdown", "-s -t 1");
+                }
+            }
         }
 
         private void stopButton_Click(object sender, EventArgs e)
@@ -92,6 +101,7 @@ namespace timer1
             timer2.Start();
             startButton.BackColor = Color.DimGray;
             stopButton.BackColor = Color.Gray;
+            
         }
 
         private void hourPlus_Click(object sender, EventArgs e)
@@ -107,42 +117,30 @@ namespace timer1
 
         private void minutePlus_Click(object sender, EventArgs e)
         {
-            if (minute == 59) { minute = 0; hour++;}
-            else { minute++; }
+            if (minute >54 ) { minute = minute + 5 - 60; hour++;}
+            else { minute = minute + 5; }
             updateDisplay();
 
         }
 
         private void minuteMinus_Click(object sender, EventArgs e)
         {
-            if (minute != 0) { minute--; updateDisplay(); }
+            if (minute < 6 && hour==0) { minute = 0;}
+            else if (minute < 6) { minute = minute - 5 + 60; hour--;}
+            else { minute = minute - 5;}
+            updateDisplay();
   
         }
 
-        private void minuteDisplay_Click(object sender, EventArgs e)
-        {
+        private void minuteDisplay_Click(object sender, EventArgs e){}
 
-        }
+        private void hmSeparator_Click(object sender, EventArgs e){}
 
-        private void hmSeparator_Click(object sender, EventArgs e)
-        {
+        private void secondDisplay_Click(object sender, EventArgs e){}
 
-        }
+        private void msSeparator_Click(object sender, EventArgs e){}
 
-        private void secondDisplay_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void msSeparator_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void hourDisplay_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void hourDisplay_Click(object sender, EventArgs e){}
 
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -157,6 +155,20 @@ namespace timer1
                 msSeparator.ForeColor = Color.DimGray;
             }
 
+        }
+
+        private void minutePlusMini_Click(object sender, EventArgs e)
+        {
+            if (minute == 59) { minute = 0; hour++; }
+            else { minute++; }
+            updateDisplay();
+        }
+
+        private void minuteMinusMini_Click(object sender, EventArgs e)
+        {
+            if (minute < 2 && hour > 0) { minute = 59;  hour--; }
+            else if (minute != 0) { minute--; }
+            updateDisplay();
         }
     }//public partial class timer 1
 }// namespace timer
