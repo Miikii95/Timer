@@ -17,6 +17,7 @@ namespace timer1
         public Form2()
         {
             InitializeComponent();
+            this.TopMost = true;
             secondDisplay.Text = seconds.ToString();
         }
 
